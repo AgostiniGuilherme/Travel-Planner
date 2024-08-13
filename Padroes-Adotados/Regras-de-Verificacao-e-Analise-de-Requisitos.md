@@ -22,15 +22,26 @@ Exemplo: RNF-01, RNF-02, RNF-03, ...
 
 ## Regras
 
-1. **Clareza e Exatidão** 
-
-- Cada requisito deve ser formulado de maneira clara e exata, sem utilizar termos vagos, eliminando qualquer ambiguidade. 
+1. **Corretude** 
+-Cada requisito deve ser expresso em linguagem clara e objetiva, evitando termos como "fácil", "rápido" ou "eficiente", que são subjetivos.
+-Os requisitos devem ser quantificáveis sempre que possível (por exemplo, "o sistema deve responder a uma requisição em no máximo 2 segundos").
+-Os requisitos devem ser verificáveis, ou seja, deve ser possível definir testes para comprovar se foram atendidos.
+-A terminologia utilizada nos requisitos deve ser consistente e alinhada com o glossário do projeto.
 
 2. **Abrangência**
-- Os requisitos devem incluir todos os detalhes necessários para garantir que o sistema atenda a todas as funções e necessidades especificadas.
+-Os requisitos devem cobrir todas as funcionalidades do sistema, desde as mais básicas até as mais complexas.
+-Os requisitos devem incluir as interfaces do sistema (usuário, hardware, outros sistemas).
+-Os requisitos devem considerar os dados que serão manipulados pelo sistema (tipos, formatos, volumes).
+-Os requisitos devem especificar os limites de operação do sistema (por exemplo, número máximo de usuários simultâneos).
 
 3. **Rastreabilidade**
-- Os requisitos devem ser documentados de maneira que possam ser facilmente rastreados ao longo do ciclo de vida do projeto.
+-Cada requisito deve ter um identificador único.
+-A origem de cada requisito deve ser documentada (por exemplo, solicitação do cliente, análise de mercado).
+-Os requisitos devem ser vinculados aos casos de uso, cenários de teste e itens de trabalho do projeto.
+-Deve ser possível rastrear as mudanças em cada requisito ao longo do tempo.
 
 4. **Coerência**
-- Os requisitos devem ser coerentes entre si, sem apresentar conflitos ou contradições. 
+-Os requisitos não devem se contradizer.
+-Os requisitos devem ser consistentes com a arquitetura do sistema.
+-Os requisitos devem ser alinhados com as metas do projeto.
+-Os requisitos devem ser analisados para identificar possíveis conflitos ou redundâncias.
