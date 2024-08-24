@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Viagem {
+  id_viagem       String   @id @default(uuid())
+  destino         String
+  data_inicio     DateTime
+  data_fim        DateTime
+  esta_confirmado Boolean  @default(false)
+  criado_em       DateTime @default(now())
+  membros         Membro[]
+
+  @@map("viagem")
+}
+
+model Membro {
+  id_membro       String  @id @default(uuid())
+  nome            String?
+  email           String
+  esta_confirmado Boolean @default(false)
+  eh_organizador  Boolean @default(false)
+  viagem_id       String
+
+  viagem Viagem @relation(fields: [viagem_id], references: [id_viagem])
+
+  @@map("membros")
+}
