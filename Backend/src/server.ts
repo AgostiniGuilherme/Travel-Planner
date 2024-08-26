@@ -1,8 +1,25 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
-import { criarViagem } from './rotas/criar-viagem';
 import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
-import { confirmarViagem } from './rotas/confirmar-viagem';
+import { confirmarViagemRouter } from './rotas/confirmarViagemRouter';
+import { criarViagemRouter } from './rotas/criarViagemRouter';
+import { confirmarMembroRouter } from './rotas/confirmarMembroRouter';
+import { criarAtividade } from './rotas/criar-atividade';
+import { listarAtividade } from './rotas/listar-atividades';
+import { criarLink } from './rotas/criar-link';
+import { listarLinks } from './rotas/listar-links';
+import { listarMembros } from './rotas/listar-membros';
+import { listarViagensMembro } from './rotas/listar-viagens-membro';
+import { criarConvite } from './rotas/criar-convite';
+import { atualizarViagem } from './rotas/atualizar-viagem';
+import { listarDetalhesViagem } from './rotas/listar-detalhes-viagem';
+import { listarMembro } from './rotas/listar-membro';
+import { errorHandler } from './errorHandler';
+import { env } from './env';
+import { deletarLink } from './rotas/delete-link';
+import { deletarViagem } from './rotas/delete-viagem';
+import { deletarAtividade } from './rotas/delete-atividade';
+import { deletarMembro } from './rotas/delete-membro';
 
 const app = fastify()
 
@@ -15,9 +32,27 @@ app.register(cors, {
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
-app.register(criarViagem)
-app.register(confirmarViagem) 
+app.setErrorHandler(errorHandler)
 
-app.listen({port: 3333}).then(() => {
+app.register(criarViagemRouter)
+app.register(confirmarViagemRouter) 
+app.register(atualizarViagem)
+app.register(listarDetalhesViagem)
+app.register(deletarViagem)
+app.register(confirmarMembroRouter)
+app.register(listarMembros)
+app.register(criarConvite)
+app.register(listarMembro)
+app.register(listarViagensMembro)
+app.register(deletarMembro)
+app.register(criarAtividade)
+app.register(listarAtividade)
+app.register(deletarAtividade)
+app.register(criarLink)
+app.register(listarLinks)
+app.register(deletarLink)
+
+
+app.listen({ port: env.PORT }).then(() => {
   console.log('Server running')
 })

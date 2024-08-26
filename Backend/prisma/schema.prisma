@@ -14,7 +14,10 @@ model Viagem {
   data_fim        DateTime
   esta_confirmado Boolean  @default(false)
   criado_em       DateTime @default(now())
-  membros         Membro[]
+
+  membros    Membro[]
+  atividades Atividade[]
+  links      Link[]
 
   @@map("viagem")
 }
@@ -30,4 +33,26 @@ model Membro {
   viagem Viagem @relation(fields: [viagem_id], references: [id_viagem])
 
   @@map("membros")
+}
+
+model Atividade {
+  id_atividade String   @id @default(uuid())
+  titulo       String
+  ocorre_em    DateTime
+  viagem_id    String
+
+  viagem Viagem @relation(fields: [viagem_id], references: [id_viagem])
+
+  @@map("atividades")
+}
+
+model Link {
+  id_link   String @id @default(uuid())
+  titulo    String
+  url       String
+  viagem_id String
+
+  viagem Viagem @relation(fields: [viagem_id], references: [id_viagem])
+
+  @@map("links")
 }
