@@ -18,9 +18,9 @@ Requisitos que descrevem atributos de qualidade do sistema. Eles são identifica
 
 ## Regras
 
-1. **Corretude** 
+1. **Facilidade de Mnuntenção** 
 
--Cada requisito deve ser expresso em linguagem clara e objetiva, evitando termos como "fácil", "rápido" ou "eficiente", que são subjetivos.
+-Cada requisito deve passível de várias utilizações e possíveis alterações sem perder suas funções principais.
 
 -A terminologia utilizada nos requisitos deve ser consistente e alinhada com o glossário do projeto.
 
