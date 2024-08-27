@@ -22,7 +22,7 @@ import { deletarAtividade } from './routes/delete-atividade';
 import { deletarMembro } from './routes/delete-membro';
 import { cadastrarUsuario } from './routes/auth-cadastro';
 import { loginUsuario } from './routes/auth-login';
-import jwtPlugin from './plugins/jwt';
+import fastifyJwt from '@fastify/jwt';
 import { authenticateDecorator } from './decorator/authenticate';
 
 const app = fastify()
@@ -39,10 +39,15 @@ app.setSerializerCompiler(serializerCompiler);
 //Tratamento de erro
 app.setErrorHandler(errorHandler)
 
-// Registre o plugin JWT
-app.register(jwtPlugin);
+// Registra o plugin Fastify JWT, que permite a geração e verificação de tokens JWT
+// A opção 'secret' define a chave secreta usada para assinar e verificar os tokens
+app.register(fastifyJwt, {
+  secret: 'chave-senha', // chave secreta para assinatura/verificação dos tokens JWT
+});
 
-// Registre o decorator de autenticação
+
+//Registra o decorator de autenticação,  que adiciona a funcionalidade de verificar 
+//se as requisições possuem um token JWT válido antes de acessar determinadas rotas
 app.register(authenticateDecorator);
 
 app.register(cadastrarUsuario)
