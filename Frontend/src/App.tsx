@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { TripDetailsPage } from "./Pages/trip-details";
-import { CreateTripPage } from "./Pages/create-trip";
+import { ViagensDetalhesPage } from "./Paginas/viagem-detalhes";
+import { CriarViagemPage } from "./Paginas/criar-viagem";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <CreateTripPage />,
+    element: <CriarViagemPage />,
   },
   {
-    path: "/trips/:tripId",
-    element: <TripDetailsPage />,
+    path: "/viagem/:viagemId",
+    element: <ViagensDetalhesPage />,
   },
 ]);
 

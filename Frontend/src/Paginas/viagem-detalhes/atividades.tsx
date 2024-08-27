@@ -1,6 +1,6 @@
 import { CircleCheck } from "lucide-react";
 
-export function Activities() {
+export function Atividades() {
   return (
     <div className="space-y-8">
       <div className="space-y-2.5">

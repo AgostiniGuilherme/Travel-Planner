@@ -1,12 +1,12 @@
 import { Plus } from "lucide-react";
 import { useState } from "react";
-import { CreateActivityModal } from "./create-activity-modal";
+import { CreateActivityModal } from "./criar-atividade-modal";
 import { ImportantLinks } from "./important-links";
 import { Guests } from "./guests";
-import { Activities } from "./activities";
-import { DestinationAndDateHeader } from "./destination-and-date-header";
+import { Atividades } from "./atividades";
+import { DestinationAndDateHeader } from "./destino-e-data-cabeçalho";
 
-export function TripDetailsPage() {
+export function ViagensDetalhesPage() {
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
     useState(false);
   function OpenCreateActivityModal() {
@@ -32,7 +32,7 @@ export function TripDetailsPage() {
             </button>
           </div>
 
-          <Activities />
+          <Atividades />
         </div>
         <div className="w-80 space-y-6">
           <ImportantLinks />

@@ -1,17 +1,17 @@
 import { ArrowRight, Calendar, MapPin, Settings2 } from "lucide-react";
 import { Button } from "../../../components/button/button";
 
-interface DestinationAndDateStepProps {
+interface DestinoEDataPassoProps {
   isGuestsInputOpen: boolean;
   CloseGuestsInput: () => void;
   OpenGuestsInput: () => void;
 }
 
-export function DestinationAndDateStep({
+export function DestinoEDataPasso({
   isGuestsInputOpen,
   CloseGuestsInput,
   OpenGuestsInput,
-}: DestinationAndDateStepProps) {
+}: DestinoEDataPassoProps) {
   return (
     <div className="h-16 bg-slate-100 px-4 rounded-xl flex items-center shadow-shape gap-3">
       <div className="flex items-center gap-2 flex-1">

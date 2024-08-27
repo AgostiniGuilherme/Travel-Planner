@@ -1,15 +1,15 @@
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { InviteGuestsModal } from "./invite-guests-modal";
-import { ConfirmTripModal } from "./confirm-trip-modal";
-import { DestinationAndDateStep } from "./steps/destination-and-date-step";
-import { InviteGuestsStep } from "./steps/invite-guests-step";
-export function CreateTripPage() {
+import { ConvidarMembrosModal } from "./convidar-membros-modal";
+import { ConfirmarViagemModal } from "./confirmar-viagem-modal";
+import { DestinoEDataPasso } from "./passos/destino-e-data-passo";
+import { InviteGuestsStep } from "./passos/convidar-membros-passo";
+export function CriarViagemPage() {
   const navigate = useNavigate();
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
   const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
   const [emailsToInvite, setEmailsToInvite] = useState(["matheus@gmail.com"]);
-  const [isConfirmTripModalOpen, setConfirmTripModalOpen] = useState(false);
+  const [isConfirmarViagemModalOpen, setConfirmarViagemModalOpen] = useState(false);
 
   function OpenGuestsInput() {
     setIsGuestsInputOpen(true);
@@ -27,12 +27,12 @@ export function CreateTripPage() {
     setIsGuestsModalOpen(false);
   }
 
-  function OpenConfirmTripModal() {
-    setConfirmTripModalOpen(true);
+  function OpenConfirmarViagemModal() {
+    setConfirmarViagemModalOpen(true);
   }
 
-  function CloseConfirmTripModal() {
-    setConfirmTripModalOpen(false);
+  function CloseConfirmarViagemModal() {
+    setConfirmarViagemModalOpen(false);
   }
 
   function AddNewEmailToInvite(event: FormEvent<HTMLFormElement>) {
@@ -61,8 +61,8 @@ export function CreateTripPage() {
     setEmailsToInvite(newEmailList);
   }
 
-  function createTrip() {
-    navigate("/trips/123");
+  function criarViagem() {
+    navigate("/viagem/123");
   }
 
   return (
@@ -76,7 +76,7 @@ export function CreateTripPage() {
         </div>
 
         <div className="space-y-4">
-          <DestinationAndDateStep
+          <DestinoEDataPasso
             CloseGuestsInput={CloseGuestsInput}
             isGuestsInputOpen={isGuestsInputOpen}
             OpenGuestsInput={OpenGuestsInput}
@@ -86,7 +86,7 @@ export function CreateTripPage() {
             <InviteGuestsStep
               OpenGuestsModal={OpenGuestsModal}
               emailsToInvite={emailsToInvite}
-              OpenConfirmTripModal={OpenConfirmTripModal}
+              OpenConfirmarViagemModal={OpenConfirmarViagemModal}
             />
           )}
         </div>
@@ -107,7 +107,7 @@ export function CreateTripPage() {
       </div>
 
       {isGuestsModalOpen && (
-        <InviteGuestsModal
+        <ConvidarMembrosModal
           emailsToInvite={emailsToInvite}
           AddNewEmailToInvite={AddNewEmailToInvite}
           CloseGuestsModal={CloseGuestsModal}
@@ -115,10 +115,10 @@ export function CreateTripPage() {
         />
       )}
 
-      {isConfirmTripModalOpen && (
-        <ConfirmTripModal
-          CloseConfirmTripModal={CloseConfirmTripModal}
-          createTrip={createTrip}
+      {isConfirmarViagemModalOpen && (
+        <ConfirmarViagemModal
+          CloseConfirmarViagemModal={CloseConfirmarViagemModal}
+          criarViagem={criarViagem}
         />
       )}
     </div>
