@@ -36,7 +36,7 @@
 
 - **Linguagem:** Typescript v5.5.4
 - **Back-End**: Node.js v20.14.0 
-- **Front-End**: React
+- **Front-End**: React v18.3.1
 - **ORM**: Prisma v5.18.0
 - **Banco de Dados:** SQLite
 - **Testes:** Jest
