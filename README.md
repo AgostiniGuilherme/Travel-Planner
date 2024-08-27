@@ -72,36 +72,34 @@ Evita a duplicação de código e Garante que a mesma lógica seja aplicada em t
 ### 6. YAGNI (You Ain't Gonna Need It): 
 Não implemente funcionalidades que não são necessárias no momento e que não apresentam utilidade comprovada no momento.
 
-
 ## Arquitetura do Projeto
 
-Este projeto está em transição para uma **Clean Architecture**, com o objetivo de melhorar a separação de responsabilidades, facilitar a manutenção, testes e a escalabilidade do código.
+### Clean Architecture (Em Progresso)
 
-### Estrutura Atual
+- **Routes:** Define os endpoints da API e lida com as requisições HTTP.
+- **Controller:** Processa as requisições recebidas e encaminha para os serviços apropriados.
+- **Services:** Contém a lógica de negócios da aplicação, abstraindo as regras de negócio e interações com os repositórios.
+- **Repository:** Responsável pela comunicação com o banco de dados, garantindo que a camada de persistência esteja desacoplada das demais camadas.
 
-O projeto atualmente utiliza duas abordagens de arquitetura:
+**Rotas Migradas:**
+- `POST /viagem` - Criar Viagem
+- `GET /viagem/:idViagem/confirm` - Confirmar Viagem
+- `GET /membro/:idMembro/confirm` - Confirmar Membros
 
-### 1. Clean Architecture (Em Progresso)
+### Arquitetura Monolítica Tradicional
 
-- **Routes**: Responsáveis por definir os endpoints da API e lidar com as requisições HTTP.
-- **Controller**: Processa as requisições recebidas pelas rotas e encaminha as chamadas para os serviços correspondentes.
-- **Services**: Contêm a lógica de negócio da aplicação, abstraindo as regras de negócio e interações com os repositórios.
-- **Repository**: Cuidam da comunicação com o banco de dados, garantindo que a camada de persistência esteja desacoplada das demais camadas.
-- **Rotas Migradas**: Até o momento, as seguintes rotas/funções já foram migradas para a Clean Architecture:
-  - `POST /viagem` - **Criar Viagem**
-  - `GET /viagem/:idViagem/confirm` - **Confirmar Viagem**
-  - `GET /membro/:idMembro/confirm` - **Confirmar Membros**
+- **Rotas Não Migradas:** A lógica de validação e acesso a dados ainda está integrada diretamente nas funções das rotas. Essas rotas seguem um modelo mais tradicional, onde a validação da existência de uma viagem e a validade das datas, por exemplo, estão implementadas diretamente na função da rota.
 
-### 2. Arquitetura Monolítica Tradicional
+### Plano de Migração de Arquitetura
 
-- Partes do código ainda seguem um estilo monolítico, onde a lógica de negócio, validação e acesso ao banco de dados estão juntas dentro das rotas.
-- **Rotas Não Migradas**: As rotas que ainda não foram migradas para a Clean Architecture seguem um modelo mais tradicional, com a lógica de validação e manipulação de dados, como a verificação da existência de uma viagem e a validade das datas, está implementada diretamente na função da rota, em vez de estar separada em services e controllers.
+O objetivo é migrar o sistema de forma incremental com todas as funcionalidades para a **Clean Architecture**. Essa abordagem visa garantir que o sistema permaneça funcional durante o processo de migração e que novas funcionalidades sejam desenvolvidas conforme a nova estrutura arquitetural.
 
-
-### Plano de Migração
-
-O objetivo é migrar todas as funcionalidades para a **Clean Architecture**, seguindo as boas práticas de desenvolvimento de software. A migração será feita de forma incremental, garantindo que o sistema permaneça funcional e que as novas funcionalidades já sejam desenvolvidas dentro dessa nova estrutura.
-
+#### Etapas do Plano de Migração
+1. **Priorização:** Identificar e priorizar os componentes e funcionalidades mais críticos para a migração inicial.
+2. **Implementação Incremental:** Migrar funcionalidades e endpoints em etapas, garantindo que cada parte seja testada e validada antes da próxima.
+3. **Validação e Testes:** Realizar testes contínuos para garantir que a transição não comprometa a integridade do sistema. Utilizar testes automatizados para validar o funcionamento das novas implementações.
+4. **Documentação:** Atualizar a documentação conforme novas funcionalidades são migradas e a estrutura é ajustada.
+5. **Refatoração:** Refatorar o código existente para aderir aos princípios da Clean Architecture, promovendo uma separação clara de responsabilidades e facilitando a manutenção e escalabilidade.
 
 ## Regras de GitHub utilizadas:
 
