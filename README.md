@@ -34,11 +34,14 @@
 
 ## Tecnologias Utilizadas
 
-- **Linguagem:** JavaScript (Node.js para o back-end e React para o front-end)
-- **Banco de Dados:** MySQL
+- **Linguagem:** Typescript v5.5.4
+- **Back-End: Node.js v20.14.0 
+- **Front-End: React
+- **ORM**: Prisma v5.18.0
+- **Banco de Dados:** SQLite
 - **Testes:** Jest
 
-## Regras de Git Hub utilizadas:
+## Regras de GitHub utilizadas:
 
 - **Trabalho por meio de branches:** Foram criadas novas branchs para cada feature ou correção de Projeto,isolando as mudanças e facilitando o merge.
 - **Trabalho por meio de branches:** Escrita de mensagens de commit claras e informativas: As mensagens de commit devem explicar o que foi feito e por quê.
@@ -46,20 +49,20 @@
 - **Trabalho por meio de branches:** Conflitos resolvidos antes de fazer merge: Conflitos de merge devem ser resolvidos cuidadosamente para evitar introduzir bugs.
   
 - **Trabalho por meio de branches:** Manter a branch principal sempre estável: A branch principal deve conter apenas código que esteja pronto para produção.
-  
 
-## Regras de Programação utilizadas:
- **Camel Case:** A nomenclatura muito utilizada no mundo do Desenvolvimento, CamelCase foi utilizada para nomear diversos itens presentes na produção do código, deixando sua utilização entendimento e pesquisa mais simples.
- **Padrão de notação de código:** A nomenclatura muito utilizada no mundo do Desenvolvimento, CamelCase foi utilizada para nomear diversos itens presentes na produção do código, deixando sua utilização entendimento e pesquisa mais simples.
- -Os nomes dos métodos devem refletir claramente a operação executada, por exemplo, criarViagem() para criar uma nova viagem
-**Gerenciamento de Erros:**
-Tratamento Global de Erros: Implementar um sistema global de tratamento de erros no back-end, capturando exceções e retornando mensagens de erro significativas
-Foram executados tratamento de erros específicos para o Back-End
-**Clean Code:**
-Escrever código limpo, que seja fácil de ler e entender. Isso inclui manter as funções curtas e focadas em uma única tarefa, evitar duplicação de código e nomear variáveis, métodos e classes de forma descritiva e clara. O objetivo é fazer com que o código seja autoexplicativo.
-**Princípios SOLID:**
-Pensado para criar um código que tenha maior manuntebiidade, que seja mais escalável e compreensível. Por exemplo, garantir que uma classe tenha uma única responsabilidade (Single Responsibility Principle)
+## Regras de Programação Utilizadas
 
+### 1. Padrão de Notação de Código CamelCase
+A nomenclatura CamelCase foi utilizada para nomear variáveis e funções presentes no código, facilitando o entendimento e a pesquisa. Este padrão é comum no mundo do Desenvolvimento, garantindo consistência e clareza na estruturação dos nomes. Assim os nomes dos métodos refletem claramente as operações executadas. Por exemplo, `criarViagem()` é utilizado para criar uma nova viagem, tornando o código mais intuitivo e fácil de seguir.
+
+### 2. Gerenciamento de Erros
+Implementamos um sistema global de tratamento de erros no back-end, capturando exceções e retornando mensagens de erro significativas. O tratamento de erros foi cuidadosamente executado para garantir a robustez do sistema.
+
+### 3. Clean Code
+O código foi escrito seguindo os princípios do Clean Code, com foco em manter as funções curtas e focadas em uma única tarefa. Evitamos a duplicação de código e garantimos que variáveis, métodos e classes fossem nomeados de maneira descritiva e clara. O objetivo é que o código seja autoexplicativo e fácil de entender.
+
+### 4. Princípios SOLID
+Adotamos os princípios SOLID para criar um código mais manutenível, escalável e compreensível. Por exemplo, garantimos que cada classe tenha uma única responsabilidade, conforme o Princípio da Responsabilidade Única (Single Responsibility Principle), melhorando a organização e a estrutura do projeto.
 
 ## Colaboradores
 
@@ -72,4 +75,9 @@ Pensado para criar um código que tenha maior manuntebiidade, que seja mais esca
 1. **Clone o Repositório:**
    ```bash
    git clone https://github.com/AgostiniGuilherme/Travel-Planner.git
+   ```
+
+2.  **Executar back-end:**
+   ```bash
+   npm run dev
    ```
