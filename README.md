@@ -38,8 +38,19 @@
 - **Back-End**: Node.js v20.14.0 
 - **Front-End**: React v18.3.1
 - **ORM**: Prisma v5.18.0
-- **Banco de Dados:** SQLite
-- **Testes:** Jest
+- **Banco de Dados:** SQLite v3.46.1
+
+## Estrutura de Pastas
+
+**Backend/**: Contém toda a lógica do lado do servidor, incluindo a implementação dos CRUDs e funcionalidades como login, cadastro e outras operações de back-end necessárias para o funcionamento do sistema.
+
+**Diagramas/**: Este diretório armazena todos os diagramas relacionados ao projeto, como o Diagrama de Classes, que ajudam a visualizar a estrutura e as interações entre os diferentes componentes do sistema.
+
+**Frontend/**: Inclui o código-fonte da interface do usuário (UI), desenvolvido com React. Contém os componentes, estilos e assets.
+
+**Padroes-Adotados/**: Contém a documentação das regras e padrões que estão sendo seguidos durante o desenvolvimento do projeto. Inclui diretrizes para verificação e análise de requisitos.
+
+**Requisitos/**: Diretório dedicado à documentação dos requisitos do projeto, que detalha as necessidades e funcionalidades que o sistema deve atender.
 
 ## Regras de Programação Utilizadas
 
