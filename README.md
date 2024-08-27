@@ -39,7 +39,29 @@
 - **Front-End**: React v18.3.1
 - **ORM**: Prisma v5.18.0
 - **Banco de Dados:** SQLite
-- **Testes:** Jest
+
+## Estrutura de Pastas
+
+A seguir está a descrição da estrutura de pastas deste repositório:
+
+TravelPlanner/
+├── Backend/
+│   ├── Código-fonte do backend com funcionalidades de login e cadastro.
+│   └── Inclui arquivos de configuração, rotas, controladores e modelos.
+├── Diagramas/
+│   ├── Contém os diagramas do projeto, como o Diagrama de Classes.
+│   └── Atualizado conforme o desenvolvimento do projeto.
+├── Frontend/
+│   ├── Código-fonte do frontend com atualizações recentes.
+│   └── Inclui componentes React, estilos e assets.
+├── Padroes-Adotados/
+│   ├── Documentação sobre os padrões adotados no projeto.
+│   └── Inclui regras de verificação e análise de requisitos.
+├── Requisitos/
+│   ├── Documentação relacionada aos requisitos do projeto.
+│   └── Inclui o Documento de Requisitos atualizado.
+└── README.md
+    └── Este arquivo, com informações gerais sobre o projeto e sua estrutura.
 
 ## Regras de Programação Utilizadas
 
