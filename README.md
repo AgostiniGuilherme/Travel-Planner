@@ -132,11 +132,13 @@ As branches devem ser nomeadas de forma a refletir o propósito da mudança, usa
 - `bugfix/descricao-do-bug`
 - `hotfix/descricao-do-hotfix`
 
+
 ## Colaboradores
 
 - Guilherme Noronha de Agostini
 - Matheus Felipe Godoi Coutinho
 - Pedro Otávio C. Nunes
+
 
 ## Como Rodar o Projeto
 
@@ -145,7 +147,23 @@ As branches devem ser nomeadas de forma a refletir o propósito da mudança, usa
    git clone https://github.com/AgostiniGuilherme/Travel-Planner.git
    ```
 
-2. **Executar back-end:**
+2. **Instalar Dependências:**
    ```bash
+   cd TravelPlanner.io
+   npm install
+   ```
+
+3. Executar Back-end:
+   ```bash
+   cd Backend
    npm run dev
    ```
+
+## Configuração do Ambiente
+Este projeto utiliza um arquivo `.env` para gerenciar variáveis de ambiente. Abaixo estão as variáveis que você precisa configurar:
+  ```bash
+DATABASE_URL="file:./caminho/para/seu/database.db"
+API_BASE_URL="http://sua-api-base-url"
+WEB_BASE_URL="http://sua-web-base-url"
+PORT="numero-da-porta"
+  ```
