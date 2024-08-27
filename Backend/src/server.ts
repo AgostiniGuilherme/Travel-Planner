@@ -1,29 +1,33 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
 import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
-import { confirmarViagemRouter } from './rotas/confirmarViagemRouter';
-import { criarViagemRouter } from './rotas/criarViagemRouter';
-import { confirmarMembroRouter } from './rotas/confirmarMembroRouter';
-import { criarAtividade } from './rotas/criar-atividade';
-import { listarAtividade } from './rotas/listar-atividades';
-import { criarLink } from './rotas/criar-link';
-import { listarLinks } from './rotas/listar-links';
-import { listarMembros } from './rotas/listar-membros';
-import { listarViagensMembro } from './rotas/listar-viagens-membro';
-import { criarConvite } from './rotas/criar-convite';
-import { atualizarViagem } from './rotas/atualizar-viagem';
-import { listarDetalhesViagem } from './rotas/listar-detalhes-viagem';
-import { listarMembro } from './rotas/listar-membro';
+import { confirmarViagemRouter } from './routes/confirmarViagemRouter';
+import { criarViagemRouter } from './routes/criarViagemRouter';
+import { confirmarMembroRouter } from './routes/confirmarMembroRouter';
+import { criarAtividade } from './routes/criar-atividade';
+import { listarAtividade } from './routes/listar-atividades';
+import { criarLink } from './routes/criar-link';
+import { listarLinks } from './routes/listar-links';
+import { listarMembros } from './routes/listar-membros';
+import { listarViagensMembro } from './routes/listar-viagens-membro';
+import { criarConvite } from './routes/criar-convite';
+import { atualizarViagem } from './routes/atualizar-viagem';
+import { listarDetalhesViagem } from './routes/listar-detalhes-viagem';
+import { listarMembro } from './routes/listar-membro';
 import { errorHandler } from './errorHandler';
 import { env } from './env';
-import { deletarLink } from './rotas/delete-link';
-import { deletarViagem } from './rotas/delete-viagem';
-import { deletarAtividade } from './rotas/delete-atividade';
-import { deletarMembro } from './rotas/delete-membro';
+import { deletarLink } from './routes/delete-link';
+import { deletarViagem } from './routes/delete-viagem';
+import { deletarAtividade } from './routes/delete-atividade';
+import { deletarMembro } from './routes/delete-membro';
+import { cadastrarUsuario } from './routes/auth-cadastro';
+import { loginUsuario } from './routes/auth-login';
+import jwtPlugin from './plugins/jwt';
+import { authenticateDecorator } from './decorator/authenticate';
 
 const app = fastify()
 
-//acesso frontend
+//Acesso frontend
 app.register(cors, {
   origin: '*',
 })
@@ -32,7 +36,18 @@ app.register(cors, {
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
+//Tratamento de erro
 app.setErrorHandler(errorHandler)
+
+// Registre o plugin JWT
+app.register(jwtPlugin);
+
+// Registre o decorator de autenticação
+app.register(authenticateDecorator);
+
+app.register(cadastrarUsuario)
+app.register(loginUsuario)
+
 
 app.register(criarViagemRouter)
 app.register(confirmarViagemRouter) 
