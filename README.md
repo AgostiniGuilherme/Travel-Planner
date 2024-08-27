@@ -49,6 +49,8 @@
 - **Trabalho por meio de branches:** Conflitos resolvidos antes de fazer merge: Conflitos de merge devem ser resolvidos cuidadosamente para evitar introduzir bugs.
   
 - **Trabalho por meio de branches:** Manter a branch principal sempre estável: A branch principal deve conter apenas código que esteja pronto para produção.
+- **Trabalho por meio de branches:** Os commits DEVEM ser prefixados com um tipo, que consiste em um substantivo, seguido pelo escopo OPCIONAL e OBRIGATÓRIO,dois pontos, e espaçamento!(feat/fix}.
+- **Trabalho por meio de branches:** Um escopo PODE ser fornecido após um tipo. Um escopo DEVE consistir em um substantivo que descreve um da base de código entre parênteses, por exemplo, Fix(parser):
 
 ## Regras de Programação Utilizadas
 
@@ -63,6 +65,13 @@ O código foi escrito seguindo os princípios do Clean Code, com foco em manter 
 
 ### 4. Princípios SOLID
 Adotamos os princípios SOLID para criar um código mais manutenível, escalável e compreensível. Por exemplo, garantimos que cada classe tenha uma única responsabilidade, conforme o Princípio da Responsabilidade Única (Single Responsibility Principle), melhorando a organização e a estrutura do projeto.
+
+### 4. Metodologia DRY (Don't Repeat Yourself): 
+Evita a duplicação de código e Garante que a mesma lógica seja aplicada em todos os lugares, evitando comportamentos inconsistentes.
+### 5. YAGNI (You Ain't Gonna Need It): 
+Não implemente funcionalidades que não são necessárias no momento e que não apresentam utilidade comprovada no momento.
+### 6. Design Patterns: Soluções Reutilizáveis:
+Soluções generalizadas para problemas comuns de design, que podem ser adaptadas para diferentes contextos.Fornecem um vocabulário comum para discutir soluções de design.Além disso,facilita a comunicação entre os membros da equipe.
 
 ## Colaboradores
 
