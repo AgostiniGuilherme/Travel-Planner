@@ -4,11 +4,11 @@ import { CriarViagemPage } from "./Paginas/criar-viagem";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/viagem",
     element: <CriarViagemPage />,
   },
   {
-    path: "/viagem/:viagemId",
+    path: "/viagem/:IdViagem",
     element: <ViagensDetalhesPage />,
   },
 ]);
