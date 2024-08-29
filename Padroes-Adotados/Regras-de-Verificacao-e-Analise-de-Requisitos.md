@@ -18,32 +18,29 @@ Requisitos que descrevem atributos de qualidade do sistema. Eles são identifica
 
 ## Regras
 
-1. **Facilidade de Mnuntenção** 
-
--Cada requisito deve passível de várias utilizações e possíveis alterações sem perder suas funções principais.
-
--A terminologia utilizada nos requisitos deve ser consistente e alinhada com o glossário do projeto.
-
-
-2. **Verificabilidade**
-
--Os requesitos fornecem os meios ou exemplos que deverão ser utilizados para verificar ou inferir se outros requesitos estão sendo obedecidos.
-
-
-3. **Rastreabilidade**
-
--Cada requisito deve ter um identificador único.
-
--Os requisitos devem ser vinculados aos casos de uso, cenários de teste e itens de trabalho do projeto.
-
--Deve ser possível rastrear as mudanças em cada requisito ao longo do tempo.
+1. **Defina somente um requesito por vez (Seção:7.2.1)** 
+CORRETO:
+        O software DEVE permitir o registro dos membros do sistema.
+        O software não DEVE permitir registros de dois Membros com os mesmos dados.
+INCORRETO:
+        O software DEVE permitir o registro de membros do Sistema e não DEVE permitir registros de dois Membros com os mesmos dados.  
+        
+              
+2. **Evite frases grandes (Seção:7.2.3)**
+CORRETO:
+      O software DEVE permitir o registro dos membros do Sistema.
+INCORRETO:
+      O software DEVE permitir o registro dos membros do nosso renomado e aclamado Sistema de Viagens TravelPlanner.
 
 
-4. **Coerência**
+3. **Respeito a estrutura de hierarquia de requesitos (Seção:7.2.5)**
+Os requesitos requesitos não possuem o mesmo nível semântico. A tentativa foi de encaixar um novo requesito como um detalhamento de um requesito existente e, se não fosse possível, lidamos como um requesito Macro diretamente alterado em um caso de uso.
 
--Os requisitos não devem se contradizer.
 
--Os requisitos devem ser analisados para identificar possíveis conflitos ou redundâncias.
+4. **Evitar Palavras Ambíguas  (Seção:7.2.2)**
+No documento de requisitos, deve-se evitar o uso de palavras que possam gerar múltiplas interpretações, como "geralmente", "frequentemente", "possivelmente", "aproximadamente", pois essas palavras ornam os requesitos imprecisos e podem comprometer o desenvolvimento do Sistema
 
-5. **Segurança**
--Define quais serão os pontos de controle que poderão ser utilizados pela equipe para medir a quanto do fim a construção do requesito está.
+ CORRETO:  
+        O sistema DEVE processar até 100 transações por segundo.
+ INCORRETO:  
+        O sistema DEVE processar aproximadamente 100 transações por segundo.
