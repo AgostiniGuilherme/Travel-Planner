@@ -18,7 +18,7 @@ export function CreateActivityModal({
     const title = data.get("title")?.toString();
     const occurs_at = data.get("occurs_at")?.toString();
     await api.post(`/viagem/${idViagem}/atividades`, { title, occurs_at });
-    CloseCreateActivityModal();
+    window.document.location.reload();
   }
   return (
     <div className="fixed inset-0 bg-white/60 flex items-center justify-center">
