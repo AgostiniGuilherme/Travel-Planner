@@ -7,7 +7,7 @@ import { MenuPage } from "./Paginas/menu";
 
 const router = createBrowserRouter([
   {
-    path: "/viagem",
+    path: "/",
     element: <CriarViagemPage />,
   },
   {

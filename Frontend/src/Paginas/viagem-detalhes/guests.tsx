@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { api } from "../../lib/axios";
 
 interface Membros {
-  id: string;
+  id_membro: string;
   nome: string | null;
   email: string;
   esta_confirmado: boolean;
@@ -15,7 +15,7 @@ export function Guests() {
   const [membros, setMembros] = useState<Membros[]>([]);
   useEffect(() => {
     api
-      .get(`/viagem/${idViagem}/participantes`)
+      .get(`/viagem/${idViagem}/membros`)
       .then((response) => setMembros(response.data.viagem));
   }, [idViagem]);
   return (
@@ -25,7 +25,7 @@ export function Guests() {
         {membros.map((membro, index) => {
           return (
             <div
-              key={membro.id}
+              key={membro.id_membro}
               className="flex items-center justify-between gap-4"
             >
               <div className="space-y-1.5">

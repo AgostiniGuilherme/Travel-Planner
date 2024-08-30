@@ -40,7 +40,7 @@ export function Atividades() {
                 {categoria.atividades.map(atividade => {
                   return (
                     <div key={atividade.id_atividade} className="space-y-2.5">
-                      <div className="px-4 py-2.5 bg-white rounded-xl shadow-shape flex items center ">
+                      <div className="px-4 py-2.5 bg-white rounded-xl shadow-shape flex items-center ">
                         <CircleCheck className="size-5 text-orange-500" />
                         <span className="text-black">{atividade.titulo}</span>
                         <span className="text-black text-sm ml-auto">
