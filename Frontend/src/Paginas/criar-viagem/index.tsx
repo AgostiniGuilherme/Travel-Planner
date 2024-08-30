@@ -14,6 +14,8 @@ export function CriarViagemPage() {
   const [isConfirmarViagemModalOpen, setConfirmarViagemModalOpen] =
     useState(false);
   const [destino, setDestino] = useState("");
+  const [criadorNome, setCriadorNome] = useState("");
+  const [criadorEmail, setCriadorEmail] = useState("");
   const [eventStartAndEndDates, setEventStartAndEndDates] = useState<
     DateRange | undefined
   >();
@@ -68,10 +70,13 @@ export function CriarViagemPage() {
     setEmailsToInvite(newEmailList);
   }
 
-  async function criarViagem() {
+  async function criarViagem(event: FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
     console.log(destino);
     console.log(eventStartAndEndDates);
     console.log(emailsToInvite);
+    console.log(criadorEmail);
+    console.log(criadorNome);
 
     if (!destino) {
       return;
@@ -82,11 +87,17 @@ export function CriarViagemPage() {
     if (emailsToInvite.length === 0) {
       return;
     }
+    if (!criadorNome || !criadorEmail) {
+      return;
+    }
 
     const response = api.post("/viagem", {
       destino,
       starts_at: eventStartAndEndDates.from,
       ends_at: eventStartAndEndDates.to,
+      emails_to_invite: emailsToInvite,
+      owner_name: criadorNome,
+      owner_email: criadorEmail,
     });
 
     const { idViagem } = (await response).data;
@@ -150,6 +161,8 @@ export function CriarViagemPage() {
         <ConfirmarViagemModal
           CloseConfirmarViagemModal={CloseConfirmarViagemModal}
           criarViagem={criarViagem}
+          setCriadorNome={setCriadorNome}
+          setCriadorEmail={setCriadorEmail}
         />
       )}
     </div>
