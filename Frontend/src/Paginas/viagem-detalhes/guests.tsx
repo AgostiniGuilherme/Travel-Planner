@@ -22,7 +22,7 @@ export function Guests() {
     <div className="space-y-6">
       <h2 className="font-semibold text-xl">Convidados</h2>
       <div className="space-y-5">
-        {membros.map((membro, index) => {
+        {membros?.map((membro, index) => {
           return (
             <div
               key={membro.id_membro}
