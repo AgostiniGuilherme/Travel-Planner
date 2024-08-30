@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 interface Atividade {
-  date: string;
+  data: string;
   atividades: {
     id_atividade: string;
     titulo: string;
@@ -25,26 +25,28 @@ export function Atividades() {
   return (
     <div className="space-y-8">
       {atividades.map(categoria => {
+        const date = new Date(categoria.data);
         return (
-          <div key={categoria.date} className="space-y-2.5">
+          <div key={categoria.data} className="space-y-2.5">
             <div className="flex gap-2 items-baseline">
               <span className="text-xl text-white font-semibold">
-                Dia {format(categoria.date, "d")}
+                Dia {format(date, 'd')}
               </span>
               <span className="text-xs text-white">
-                {format(categoria.date, "EEEE", { locale: ptBR })}
+                {format(date, 'EEEE', { locale: ptBR })}
               </span>
             </div>
             {categoria.atividades.length > 0 ? (
               <div>
                 {categoria.atividades.map(atividade => {
+                  const hora = new Date(atividade.ocorre_em);
                   return (
                     <div key={atividade.id_atividade} className="space-y-2.5">
                       <div className="px-4 py-2.5 bg-white rounded-xl shadow-shape flex items-center ">
                         <CircleCheck className="size-5 text-orange-500" />
                         <span className="text-black">{atividade.titulo}</span>
                         <span className="text-black text-sm ml-auto">
-                          {format(atividade.ocorre_em, "HH:mm")}h
+                          {format(hora, 'HH:mm')}h
                         </span>
                       </div>
                     </div>

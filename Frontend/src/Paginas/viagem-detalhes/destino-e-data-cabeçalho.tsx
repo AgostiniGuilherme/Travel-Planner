@@ -6,7 +6,7 @@ import { api } from "../../lib/axios";
 import { format } from "date-fns";
 
 interface Viagem {
-  id: string;
+  id_viagem: string;
   destino: string;
   data_inicio: string;
   data_fim: string;

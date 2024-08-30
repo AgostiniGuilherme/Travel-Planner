@@ -15,8 +15,8 @@ export function CreateActivityModal({
   async function CreateActivity(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const titulo = data.get("title")?.toString();
-    const ocorre_em = data.get("occurs_at")?.toString();
+    const titulo = data.get("titulo")?.toString();
+    const ocorre_em = data.get("ocorre_em")?.toString();
     await api.post(`/viagem/${idViagem}/atividades`, { titulo, ocorre_em });
     window.document.location.reload();
   }
@@ -40,9 +40,9 @@ export function CreateActivityModal({
             <div className="h-14 px-4 bg-white border border-black rounded-lg flex items-center gap-2">
               <Tag className="text-zinc-400 size-5" />
               <input
-                name="title"
+                name="titulo"
                 placeholder="Qual a atividade?"
-                className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
+                className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1 text-black"
               />
             </div>
 
@@ -50,7 +50,7 @@ export function CreateActivityModal({
               <Calendar className="text-zinc-400 size-5" />
               <input
                 type="datetime-local"
-                name="occurs-at"
+                name="ocorre_em"
                 placeholder="Data e horário da atividade"
                 className="bg-transparent text-zinc-400 text-lg placeholder-zinc-400 outline-none flex-1"
               />
