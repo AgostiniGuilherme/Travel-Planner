@@ -4,12 +4,19 @@ import { ConvidarMembrosModal } from "./convidar-membros-modal";
 import { ConfirmarViagemModal } from "./confirmar-viagem-modal";
 import { DestinoEDataPasso } from "./passos/destino-e-data-passo";
 import { InviteGuestsStep } from "./passos/convidar-membros-passo";
+import { DateRange } from "react-day-picker";
+import { api } from "../../lib/axios";
 export function CriarViagemPage() {
   const navigate = useNavigate();
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
   const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
   const [emailsToInvite, setEmailsToInvite] = useState(["matheus@gmail.com"]);
-  const [isConfirmarViagemModalOpen, setConfirmarViagemModalOpen] = useState(false);
+  const [isConfirmarViagemModalOpen, setConfirmarViagemModalOpen] =
+    useState(false);
+  const [destino, setDestino] = useState("");
+  const [eventStartAndEndDates, setEventStartAndEndDates] = useState<
+    DateRange | undefined
+  >();
 
   function OpenGuestsInput() {
     setIsGuestsInputOpen(true);
@@ -61,8 +68,29 @@ export function CriarViagemPage() {
     setEmailsToInvite(newEmailList);
   }
 
-  function criarViagem() {
-    navigate("/viagem/123");
+  async function criarViagem() {
+    console.log(destino);
+    console.log(eventStartAndEndDates);
+    console.log(emailsToInvite);
+
+    if (!destino) {
+      return;
+    }
+    if (!eventStartAndEndDates?.from || !eventStartAndEndDates?.to) {
+      return;
+    }
+    if (emailsToInvite.length === 0) {
+      return;
+    }
+
+    const response = api.post("/viagem", {
+      destino,
+      starts_at: eventStartAndEndDates.from,
+      ends_at: eventStartAndEndDates.to,
+    });
+
+    const { idViagem } = (await response).data;
+    navigate(`/viagem/${idViagem}`);
   }
 
   return (
@@ -80,6 +108,9 @@ export function CriarViagemPage() {
             CloseGuestsInput={CloseGuestsInput}
             isGuestsInputOpen={isGuestsInputOpen}
             OpenGuestsInput={OpenGuestsInput}
+            setDestino={setDestino}
+            setEventStartAndEndDates={setEventStartAndEndDates}
+            eventStartAndEndDates={eventStartAndEndDates}
           />
 
           {isGuestsInputOpen && (

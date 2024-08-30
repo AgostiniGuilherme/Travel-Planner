@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <CriarViagemPage />,
   },
   {
-    path: "/viagem/:IdViagem",
+    path: "/viagem/:idViagem",
     element: <ViagensDetalhesPage />,
   },
   {
