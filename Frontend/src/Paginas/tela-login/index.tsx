@@ -7,6 +7,9 @@ export function LoginPage() {
   function CriarCadastro() {
     navigate("/cadastro");
   }
+  function Entrar() {
+    navigate("/menu");
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -34,6 +37,7 @@ export function LoginPage() {
         </div>
         <div className="flex flex-col w-full max-w-xl px-32 items-center justify-center gap-4">
           <Button
+            onClick={Entrar}
             className="w-full mt-6 px-12 py-5"
             type="submit"
             variant="primary"
