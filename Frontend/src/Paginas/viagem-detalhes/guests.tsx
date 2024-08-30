@@ -6,9 +6,9 @@ import { api } from "../../lib/axios";
 
 interface participantes {
   id: string;
-  name: string | null;
+  nome: string | null;
   email: string;
-  is_confirmed: boolean;
+  esta_confirmado: boolean;
 }
 export function Guests() {
   const { idViagem } = useParams();
@@ -30,13 +30,13 @@ export function Guests() {
             >
               <div className="space-y-1.5">
                 <span className="block font-medium text-white">
-                  {participante.name ?? `Convidado ${index}`}
+                  {participante.nome ?? `Convidado ${index}`}
                 </span>
                 <span className="block text-sm text-white truncate">
                   {participante.email}
                 </span>
               </div>
-              {participante.is_confirmed ? (
+              {participante.esta_confirmado ? (
                 <CheckCircle2 className="text-green-500 size-5 shrink-0" />
               ) : (
                 <CircleDashed className="text-white size-5 shrink-0" />

@@ -8,9 +8,9 @@ import { format } from "date-fns";
 interface Viagem {
   id: string;
   destino: string;
-  starts_at: string;
-  ends_at: string;
-  is_confirmed: boolean;
+  data_inicio: string;
+  data_fim: string;
+  esta_confirmado: boolean;
 }
 
 export function DestinationAndDateHeader() {
@@ -23,9 +23,9 @@ export function DestinationAndDateHeader() {
   }, [idViagem]);
 
   const displayedAndDate = viagem
-    ? format(viagem.starts_at, "d ' de ' LLL")
+    ? format(viagem.data_inicio, "d ' de ' LLL")
         .concat(" até ")
-        .concat(format(viagem.ends_at, "d ' de ' LLL"))
+        .concat(format(viagem.data_fim, "d ' de ' LLL"))
     : null;
 
   return (

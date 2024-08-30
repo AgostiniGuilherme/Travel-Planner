@@ -93,11 +93,11 @@ export function CriarViagemPage() {
 
     const response = api.post("/viagem", {
       destino,
-      starts_at: eventStartAndEndDates.from,
-      ends_at: eventStartAndEndDates.to,
-      emails_to_invite: emailsToInvite,
-      owner_name: criadorNome,
-      owner_email: criadorEmail,
+      data_inicio: eventStartAndEndDates.from,
+      data_fim: eventStartAndEndDates.to,
+      emails_convidados: emailsToInvite,
+      organizador_nome: criadorNome,
+      organizador_email: criadorEmail,
     });
 
     const { idViagem } = (await response).data;

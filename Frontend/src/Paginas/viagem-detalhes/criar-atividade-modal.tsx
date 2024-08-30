@@ -15,9 +15,9 @@ export function CreateActivityModal({
   async function CreateActivity(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const title = data.get("title")?.toString();
-    const occurs_at = data.get("occurs_at")?.toString();
-    await api.post(`/viagem/${idViagem}/atividades`, { title, occurs_at });
+    const titulo = data.get("title")?.toString();
+    const ocorre_em = data.get("occurs_at")?.toString();
+    await api.post(`/viagem/${idViagem}/atividades`, { titulo, ocorre_em });
     window.document.location.reload();
   }
   return (
