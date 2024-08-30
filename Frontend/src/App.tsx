@@ -3,6 +3,7 @@ import { ViagensDetalhesPage } from "./Paginas/viagem-detalhes";
 import { CriarViagemPage } from "./Paginas/criar-viagem";
 import { CadastroPage } from "./Paginas/tela-cadastro";
 import { LoginPage } from "./Paginas/tela-login";
+import { MenuPage } from "./Paginas/menu";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/menu",
+    element: <MenuPage />,
   },
 ]);
 
