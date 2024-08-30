@@ -1,5 +1,8 @@
 import { Calendar, Tag, X } from "lucide-react";
 import { Button } from "../../components/button/button";
+import { FormEvent } from "react";
+import { useParams } from "react-router-dom";
+import { api } from "../../lib/axios";
 
 interface CreateActivityModalProps {
   CloseCreateActivityModal: () => void;
@@ -7,6 +10,16 @@ interface CreateActivityModalProps {
 export function CreateActivityModal({
   CloseCreateActivityModal,
 }: CreateActivityModalProps) {
+  const { idViagem } = useParams();
+
+  async function CreateActivity(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const title = data.get("title")?.toString();
+    const occurs_at = data.get("occurs_at")?.toString();
+    await api.post(`/viagem/${idViagem}/atividades`, { title, occurs_at });
+    CloseCreateActivityModal();
+  }
   return (
     <div className="fixed inset-0 bg-white/60 flex items-center justify-center">
       <div className="w-[648px] rounded-xl py-5 px-6 shadow-shape bg-zinc-50 space-y-5">
@@ -23,7 +36,7 @@ export function CreateActivityModal({
             Todos convidados podem visualizar as atividades.
           </p>
 
-          <form className="space-y-3">
+          <form onSubmit={CreateActivity} className="space-y-3">
             <div className="h-14 px-4 bg-white border border-black rounded-lg flex items-center gap-2">
               <Tag className="text-zinc-400 size-5" />
               <input
